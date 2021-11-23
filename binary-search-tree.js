@@ -44,6 +44,7 @@ class BinarySearchTree {
   // Depth First Traversal - Iterative
   depthFirstTraversal() {
     // Your code here
+  }
 }
 
 module.exports = { BinarySearchTree, TreeNode };
