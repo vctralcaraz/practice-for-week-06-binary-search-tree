@@ -89,7 +89,27 @@ class BinarySearchTree {
 
     // Breadth First Traversal - Iterative
   breadthFirstTraversal() {
-    // Your code here
+    // create a empty array as queue
+    // push root node to the queue
+    // as long as the queue is not empty, print out the 1st 
+    // element from the queue, set a variable to point at that node 
+    // check if the node has a left or right child, push in into the 
+    // the queue if they exists.
+//       4
+//     /   \
+//    2     7
+//   / \   / \
+//  1   3 5   8
+
+    let queue = [this.root];
+    // queue.push(this.root) 
+    while (queue.length) {
+      currentNode = queue.shift();
+      console.log(currentNode);
+      while(currentNode.left) queue.push(currentNode.left)
+      while(currentNode.right) queue.push(currentNode.right)
+    }
+    
   }
 
   // Depth First Traversal - Iterative
