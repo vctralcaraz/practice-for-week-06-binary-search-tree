@@ -46,7 +46,18 @@ class BinarySearchTree {
 
   search(val) {
     // Your code here
-    
+    // starting from the root, if val is equal to 
+    // root, return true. 
+    let currentNode = this.root;
+    while (currentNode) {
+      if (currentNode.val === val) return true;
+      if (val < currentNode.val) {
+        currentNode = currentNode.left;
+      } else if (val > currentNode.val) {
+        currentNode = currentNode.right;
+      }
+    }
+    return false;
   }
 
 
@@ -74,5 +85,23 @@ class BinarySearchTree {
     // Your code here
   }
 }
+
+
+bst = new BinarySearchTree();
+bst.insert(4);
+bst.insert(2);
+bst.insert(6);
+bst.insert(1);
+bst.insert(3);
+bst.insert(5);
+bst.insert(7);
+
+console.log(bst.search(1))
+console.log(bst.search(2))
+console.log(bst.search(3))
+console.log(bst.search(4))
+console.log(bst.search(5))
+console.log(bst.search(6))
+console.log(bst.search(7))
 
 module.exports = { BinarySearchTree, TreeNode };
