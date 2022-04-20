@@ -95,36 +95,52 @@ class BinarySearchTree {
     // element from the queue, set a variable to point at that node 
     // check if the node has a left or right child, push in into the 
     // the queue if they exists.
-//       4
-//     /   \
-//    2     7
-//   / \   / \
-//  1   3 5   8
+    //       4
+    //     /   \
+    //    2     7
+    //   / \   / \
+    //  1   3 5   8
 
     let queue = [this.root];
     // queue.push(this.root) 
-    while (queue.length) {
-      currentNode = queue.shift();
-      console.log(currentNode);
-      while(currentNode.left) queue.push(currentNode.left)
-      while(currentNode.right) queue.push(currentNode.right)
-    }
-    
+    while (queue.length > 0) {
+      let currentNode = queue.shift();
+      console.log(currentNode.val);
+      if (currentNode.left) queue.push(currentNode.left)
+      if (currentNode.right) queue.push(currentNode.right)
+    }    
   }
 
   // Depth First Traversal - Iterative
   depthFirstTraversal() {
-    // Your code here
+    // create a array with root node as a start
+    // as long as the array is not empty
+    // set a variable currentNode to hold the current node
+    //    which should be last element of the array
+    // check if currentNode has right or left child, push them
+    // into the array.
+
+    let stack = [this.root];
+    while(stack.length > 0) {
+      let currentNode = stack.pop();
+      console.log(currentNode.val);
+      if (currentNode.right) stack.push(currentNode.right);
+      if (currentNode.left) stack.push(currentNode.left)
+    }
   }
 }
 
 
 bst = new BinarySearchTree();
 bst.insert(4);
+bst.insert(2);
+bst.insert(1);
 bst.insert(3);
+bst.insert(7);
 bst.insert(5);
+bst.insert(8);
 
-console.log(bst.postOrderTraversal())
+console.log(bst.depthFirstTraversal())
 // console.log(bst.search(1))
 // console.log(bst.search(2))
 // console.log(bst.search(3))
